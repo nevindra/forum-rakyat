@@ -57,7 +57,7 @@ export const OauthSignIn = () => {
   }
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 z-10 relative">
       {oAuthProviders.map((provider) => (
         <form
           key={provider.name}

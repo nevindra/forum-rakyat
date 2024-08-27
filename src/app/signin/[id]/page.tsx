@@ -4,6 +4,7 @@ import { OauthSignIn } from "@/components/auth/oauth"
 import { match, P } from "ts-pattern"
 import { Separator } from "@/ui/separator"
 import { FormSignIn } from "@/components/auth/form-sign-in"
+import Image from "next/image"
 
 type SigInProps = {
   params: {
@@ -25,13 +26,22 @@ export default async function SignIn({ params }: SigInProps) {
       <div>TODO: Update Username</div>
     ))
     .otherwise(() => (
-      <main className="flex justify-center items-center height-screen-helper">
-        <div className="max-w-[400px] w-full bg-white h-auto p-[32px] flex flex-col gap-4 rounded-md">
-          <div className="flex flex-col gap-y-4">
-            <div className="h-10 w-10 bg-white flx item-center justify-center">
-              {" "}
-              LOGO{" "}
-            </div>
+      <main className="flex justify-center items-center h-screen px-4 sm:px-0">
+        <div className="max-w-[400px] w-full bg-white h-auto p-[32px] flex flex-col gap-4 rounded-[16px] relative overflow-hidden">
+          <Image
+            alt="background"
+            width={400}
+            height={200}
+            src="/image/bg-gradient.png"
+            className="absolute top-0 right-0 left-0"
+          />
+          <div className="flex flex-col gap-y-4 z-10 relative">
+            <Image
+              alt="background"
+              width={40}
+              height={40}
+              src="/image/logo.png"
+            />
             <h1 className="text-3xl font-satoshi font-bold leading-[40px]">
               Halo 👋
               <br />
