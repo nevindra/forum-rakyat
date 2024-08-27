@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 export default function Navbar() {
   return (
     <header className="sticky top-2 left-0 right-0 w-full bg-white z-50 border-2 backdrop-blur rounded-lg my-4 mx-auto max-w-screen-lg">
