@@ -4,11 +4,13 @@ import type { Provider } from "@supabase/supabase-js"
 
 import { Button } from "@/ui/button"
 import { NEXT_PUBLIC_AUTH_PROVIDERS } from "@/env"
-import { TwitterLogoIcon as Twitter } from "@/icons"
+
 import { useRef } from "react"
 import { getURL } from "@/lib/utils"
 import { createClient } from "@/lib/supabase/client"
-import { CustomIcons } from "@/components/icons/custom"
+import * as SocialIcon from "@/components/icons/social"
+
+import { match } from "ts-pattern"
 
 type OAuthProviders = {
   name: Provider
@@ -16,15 +18,12 @@ type OAuthProviders = {
   icon: JSX.Element | null
 }
 
-const getIcon = (provider: string): JSX.Element | null => {
-  const iconMap: { [key: string]: JSX.Element | null } = {
-    google: <CustomIcons.google className="h-5 w-5" />,
-    facebook: <CustomIcons.facebook className="h-5 w-5" />,
-    twitter: <CustomIcons.twitter className="h-5 w-5" />,
-  }
-
-  return iconMap[provider] || null
-}
+const getIcon = (provider: string) =>
+  match(provider)
+    .with("google", () => <SocialIcon.GoogleIcon className="h-5 w-5" />)
+    .with("facebook", () => <SocialIcon.FacebookIcon className="h-5 w-5" />)
+    .with("twitter", () => <SocialIcon.TwitterIcon className="h-5 w-5" />)
+    .otherwise(() => null)
 
 const toOAuthProvider = (provider: string): OAuthProviders => ({
   name: provider as Provider,
