@@ -3,11 +3,11 @@ import type { Config } from "tailwindcss"
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -18,6 +18,14 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        satoshi: ["Satoshi", "sans-serif"],
+        "geist-sans": ["var(--font-geist-sans)"],
+        "geist-mono": ["var(--font-geist-mono)"],
+      },
+      boxShadow: {
+        btn: "0px 1px 2px 0px #00200F0D",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -27,6 +35,9 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          500: "hsla(149, 53%, 54%, 1)",
+          950: "hsla(148, 100%, 6%, 0.8)",
+          placeholder: "hsla(148, 100%, 6%, 0.48)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
